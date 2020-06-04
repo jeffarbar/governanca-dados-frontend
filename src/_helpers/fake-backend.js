@@ -7,9 +7,6 @@ export function configureFakeBackend(http) {
             setTimeout(() => {
 
                 // authenticate
-
-console.log(url + "URL")
-
                 if (url.endsWith('/autenticacao') && opts.method === 'POST') {
             
                     let params = JSON.parse(opts.body);

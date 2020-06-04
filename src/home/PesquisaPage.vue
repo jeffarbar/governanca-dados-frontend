@@ -104,10 +104,9 @@ export default {
             let endPoint = this.recuperaEndPoint()
 
             this.$store.state.alert = null;
+            this.listaCatalogoDados = []
 
             if( this.stringpesquisa != undefined && this.stringpesquisa.length > 3 ){    
-
-                this.listaCatalogoDados = []
 
                 let strPesquisa = {
                     "stringPesquisa": this.stringpesquisa
@@ -117,14 +116,25 @@ export default {
                 this.$http.post(endPoint,
                     strPesquisa
                 ).then(function(response) {
-                    self.listaCatalogoDados = response.data;
+                    console.log("resultado " + response.data.codigo)
+                    if( response.data.codigo === 0){
+                           self.listaCatalogoDados = response.data.listaCatalogoDado;  
+                    }else{
+
+                        let alerta = {
+                            message : response.data.message,
+                            type : 'alert-info'
+                        }
+                        self.$store.state.alert = alerta;
+                    }
+                   
                 }).catch(e => {
                     
                     let alerta = {
                         message : 'Falha na solicitação',
                         type : 'alert-danger'
                     }
-                    this.$store.state.alert = alerta;
+                    self.$store.state.alert = alerta;
                 })
             }else{
 
