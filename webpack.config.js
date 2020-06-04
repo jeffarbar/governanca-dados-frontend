@@ -32,10 +32,15 @@ module.exports = {
         template: './src/index.html'
     })],
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true,
+        open: process.platform === "darwin",
+        host: "0.0.0.0",
+        port: 8080, 
+        https: false,
+        hotOnly: false
     },
     externals: {
-        // global app config object
+         //global app config object
         config: JSON.stringify({
             apiUrl: 'http://localhost:4000'
         })

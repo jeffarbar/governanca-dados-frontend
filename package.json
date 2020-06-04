@@ -1,10 +1,7 @@
 {
-  "name": "vue-vuex-jwt-authentication-example",
+  "name": "governanca_dados",
   "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cornflourblue/vue-vuex-jwt-authentication-example.git"
-  },
+  "private": true,
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --open"
