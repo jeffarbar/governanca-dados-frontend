@@ -9,8 +9,8 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 const base = axios.create({
-     baseURL: 'http://localhost:8092/governanca'
-    //baseURL: 'http://52.251.123.6:8092/governanca'
+    //baseURL: 'http://localhost:8092/governanca'
+    baseURL: 'http://52.251.123.6:8092/governanca'
 })
 
 Vue.prototype.$http = base
