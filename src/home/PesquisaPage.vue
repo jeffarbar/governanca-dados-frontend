@@ -14,6 +14,7 @@
                     &nbsp;&nbsp;<a href="#" @click="buscar();"><img src="/src/_img/lupa.png" alt="Buscar"></a>
                 </div>
                 <div class="col-auto">
+                    <br>
                     <label class="btn btn-secondary">
                         <input type="radio" v-model="optEndPoint" name="options" value="optTudo" id="optTudo" autocomplete="off"> Tudo
                     </label>
@@ -42,14 +43,6 @@
                     @row-selected="onRowSelected"
                     :items="listaCatalogoDados" 
                     :fields="campos">
-                    <template v-if="rowSelected">
-                        <span aria-hidden="true">&check;</span>
-                        <span class="sr-only">Selected</span>
-                    </template>
-                    <template v-else>
-                        <span aria-hidden="true">&nbsp;</span>
-                        <span class="sr-only">Not selected</span>
-                    </template>
                 </b-table>
                    
              </div>
@@ -63,7 +56,7 @@ export default {
     data() {
       return {
         listaCatalogoDados: [],
-        campos: ['Banco de Dados', 'Tabela', 'Domínio Negócio', 'Definição', 'Assunto' ,'Nome','Domínio Dados', 'Sub Domínio Dados'],
+        campos: [ 'Domínio Negócio', 'Definição', 'Assunto' ,'Nome','Domínio Dados', 'Sub Domínio Dados'],
         selectMode: 'single',
         selected: [],
         rowSelected:false,
@@ -106,7 +99,7 @@ export default {
             this.$store.state.alert = null;
             this.listaCatalogoDados = []
 
-            if( this.stringpesquisa != undefined && this.stringpesquisa.length > 3 ){    
+            if( this.stringpesquisa != undefined && this.stringpesquisa.length > 2 ){    
 
                 let strPesquisa = {
                     "stringPesquisa": this.stringpesquisa
@@ -139,7 +132,7 @@ export default {
             }else{
 
                 let alerta = {
-                    message : 'Favor, usar mais de 3 caracteres de pesquisa',
+                    message : 'Favor, usar mais de 2 caracteres de pesquisa',
                     type : 'alert-info'
                 }
                 this.$store.state.alert = alerta;

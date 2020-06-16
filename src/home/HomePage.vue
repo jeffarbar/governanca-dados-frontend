@@ -69,13 +69,13 @@ export default {
     },
     methods: {
         buscar() {
-            if( this.stringpesquisa != undefined && this.stringpesquisa.length > 3 ){  
+            if( this.stringpesquisa != undefined && this.stringpesquisa.length > 2 ){  
                 this.$store.state.str = this.stringpesquisa;
                 this.$store.state.optEndPoint = this.optEndPoint;
                 this.$router.push('/pesquisa') 
             }else{
                 let alerta = {
-                    message : 'Favor, usar mais de 3 caracteres de pesquisa ',
+                    message : 'Favor, usar mais de 2 caracteres de pesquisa ',
                     type : 'alert-info'
                 }
                 this.$store.state.alert = alerta;
