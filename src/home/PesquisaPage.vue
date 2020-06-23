@@ -11,7 +11,7 @@
                         placeholder="O que procura?">
                 </div>
                 <div class="col-auto">
-                    &nbsp;&nbsp;<a href="#" @click="buscar();"><img src="/src/_img/lupa.png" alt="Buscar"></a>
+                    &nbsp;&nbsp;<a href="#" @click="buscar();"><img src="/src/_img/lupa.png"  width="38px" height="38px"  alt="Buscar"></a>
                 </div>
                 <div class="col-auto">
                     <br>

@@ -44,6 +44,9 @@
                                 <label class="btn btn-secondary">
                                     <input type="radio" v-model="optEndPoint" name="options" value="optAssunto" id="optAssunto" autocomplete="off"> Assunto
                                 </label>
+                                <label class="btn">
+                                    <button class="btn btn-danger" v-on:click="tag">Tags</button>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -68,6 +71,10 @@ export default {
         },
     },
     methods: {
+        tag(){
+            console.log('testes tag')
+            this.$router.push('/tag') 
+        },
         buscar() {
             if( this.stringpesquisa != undefined && this.stringpesquisa.length > 2 ){  
                 this.$store.state.str = this.stringpesquisa;

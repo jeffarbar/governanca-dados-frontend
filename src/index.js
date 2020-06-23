@@ -5,8 +5,11 @@ import { store } from './_store';
 import { router } from './_helpers';
 import App from './app/App';
 import BootstrapVue from 'bootstrap-vue'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+
 
 const base = axios.create({
     //baseURL: 'http://localhost:8092/governanca'
