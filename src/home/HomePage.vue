@@ -11,7 +11,7 @@
              <div class="col-md-12">
                 
                 <div class="row justify-content-center">
-                    <div class="col-12 col-md-12 col-lg-8">
+                    <div class="col-12 col-md-12 col-lg-10">
                         <div class="card-body row no-gutters align-items-center">
                             <div class="col-auto">
                                 <i class="fas fa-search h1 text-body"></i>
@@ -44,8 +44,8 @@
                                 <label class="btn btn-secondary">
                                     <input type="radio" v-model="optEndPoint" name="options" value="optAssunto" id="optAssunto" autocomplete="off"> Assunto
                                 </label>
-                                <label class="btn">
-                                    <button class="btn btn-danger" v-on:click="tag">Tags</button>
+                                <label class="btn btn-secondary">
+                                    <input type="radio" v-model="optEndPoint" name="options" value="optGrupoDominioDados" id="optGrupoDominioDados" autocomplete="off"> Grupo Domínio Dados
                                 </label>
                             </div>
                         </div>
@@ -60,10 +60,10 @@
 export default {
     name: 'home',
     data() {
-      return {
-        stringpesquisa:'',
-        optEndPoint:'optTudo'
-      };
+        return {
+            stringpesquisa:'',
+            optEndPoint:'optTudo'
+        };
     },
     computed: {
         user () {
@@ -71,22 +71,10 @@ export default {
         },
     },
     methods: {
-        tag(){
-            console.log('testes tag')
-            this.$router.push('/tag') 
-        },
         buscar() {
-            if( this.stringpesquisa != undefined && this.stringpesquisa.length > 2 ){  
-                this.$store.state.str = this.stringpesquisa;
-                this.$store.state.optEndPoint = this.optEndPoint;
-                this.$router.push('/pesquisa') 
-            }else{
-                let alerta = {
-                    message : 'Favor, usar mais de 2 caracteres de pesquisa ',
-                    type : 'alert-info'
-                }
-                this.$store.state.alert = alerta;
-            }
+            this.$store.state.str = this.stringpesquisa;
+            this.$store.state.optEndPoint = this.optEndPoint;
+            this.$router.push('/pesquisa') 
         }
     }
 };

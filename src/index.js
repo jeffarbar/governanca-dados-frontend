@@ -9,16 +9,23 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+import Mindmap from 'vue-mindmap'
 
+import 'vue-mindmap/dist/vue-mindmap.css'
 
 const base = axios.create({
     //baseURL: 'http://localhost:8092/governanca'
     baseURL: 'http://52.251.123.6:8092/governanca'
 })
 
+Vue.use(Mindmap)
+
 Vue.prototype.$http = base
 Vue.use(BootstrapVue)
 Vue.config.productionTip = false
+
+
+
 
 // setup fake backend
 import { configureFakeBackend } from './_helpers';
